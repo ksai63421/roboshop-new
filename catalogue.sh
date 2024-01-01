@@ -26,9 +26,13 @@ VALIDATE(){
       fi
 }
 
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>> $LOGFILE
+curl -k -sL https://rpm.nodesource.com/setup_lts.x | bash &>> $LOGFILE
 
 VALIDATE $? "Setting up NPM source"
+
+apt-get update 
+
+VALIDATE $? "Populating apt-get cache"
 
 yum install nodejs -y 
 
