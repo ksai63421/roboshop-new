@@ -26,7 +26,7 @@ VALIDATE(){
       fi
 }
 
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>> $LOGFILE
+curl -0- https://rpm.nodesource.com/setup_lts.x | bash &>> $LOGFILE
 
 VALIDATE $? "Setting up NPM source"
 
