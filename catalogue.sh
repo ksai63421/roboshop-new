@@ -26,14 +26,11 @@ VALIDATE(){
       fi
 }
 
-yum install https://rpm.nodesource.com/pub_18.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y \
-    && yum install nodejs -y --setopt=nodesource-nodejs.module_hotfixes=1
+curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>> $LOGFILE
 
-# curl -0- https://rpm.nodesource.com/setup_18.x | bash &>> $LOGFILE
+VALIDATE $? "Setting up NPM source"
 
-# VALIDATE $? "Setting up NPM source"
-
-# dnf install nodejs -y 
+yum install nodejs -y 
 
 # once user is created if you run this script for the 2nd time 
 # this command will fail ?
