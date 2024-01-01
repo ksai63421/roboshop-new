@@ -30,9 +30,7 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>> $LOGFILE
 
 VALIDATE $? "Setting up NPM source"
 
-yum install nodejs -y &>> $LOGFILE
-
-VALIDATE $? "Installing nodeJS"
+yum install nodejs -y 
 
 # once user is created if you run this script for the 2nd time 
 # this command will fail ?
