@@ -30,7 +30,8 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>> $LOGFILE
 
 VALIDATE $? "Setting up NPM source"
 
-yum install nodejs -y 
+yum install https://rpm.nodesource.com/pub_20.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
+yum install nsolid -y
 
 # once user is created if you run this script for the 2nd time 
 # this command will fail ?
