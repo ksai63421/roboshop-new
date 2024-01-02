@@ -26,62 +26,63 @@ VALIDATE(){
       fi
 }
 
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>> $LOGFILE
+curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>$LOGFILE
 
 VALIDATE $? "Setting up NPM source"
 
-yum install https://rpm.nodesource.com/pub_20.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
-yum install nsolid -y
+yum install nodejs -y &>>$LOGFILE
+
+VALIDATE $? "Installing NodeJS"
 
 # once user is created if you run this script for the 2nd time 
 # this command will fail ?
 # improvement: check the user alredy exit or not if not then create
-useradd roboshop &>> $LOGFILE
+useradd roboshop &>>$LOGFILE  
 
 # write a condifiton to check dir alredy exit or not
 
-mkdir /app &>> $LOGFILE
+mkdir /app &>>$LOGFILE
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
 
 VALIDATE $? "downloading catalogue artifact"
 
-cd /app &>> $LOGFILE
+cd /app &>>$LOGFILE
 
 VALIDATE $? "moving into app dir"
 
-unzip /tmp/catalogue.zip &>> $LOGFILE
+unzip /tmp/catalogue.zip &>>$LOGFILE
 
 VALIDATE $? "unzipping catalogue"
 
-npm install &>> $LOGFILE
+npm install &>>$LOGFILE
 
 VALIDATE $? "installing dependencies"
 
-cp /home/centos/roboshop-new/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
+cp /home/centos/roboshop-new/catalogue.service /etc/systemd/system/catalogue.service &>>$LOGFILE
 
 VALIDATE $? "copying catalogue.service"
 
-systemctl daemon-reload &>> $LOGFILE
+systemctl daemon-reload &>>$LOGFILE
 
 VALIDATE $? "daemon reload"
 
-systemctl enable catalogue &>> $LOGFILE
+systemctl enable catalogue &>>$LOGFILE
 
 VALIDATE $? "Enabling catalogue"
 
-systemctl start catalogue &>> $LOGFILE
+systemctl start catalogue &>>$LOGFILE
 
 VALIDATE $? "starting catalogue"
 
-cp /home/centos/roboshop-new/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+cp /home/centos/roboshop-new/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
 
 VALIDATE $? "copying monogo repo"
 
-yum install mongodb-org-shell -y &>> $LOGFILE
+yum install mongodb-org-shell -y &>>$LOGFILE
 
 VALIDATE $? "installing mongo client"
 
-mongo --host mongodb.joindevops.eu </app/schema/catalogue.js &>> $LOGFILE 
+mongo --host mongodb.joindevops.eu </app/schema/catalogue.js &>>$LOGFILE 
 
 VALIDATE $? "loading catalogue data into mongodb"
