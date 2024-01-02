@@ -1,0 +1,135 @@
+Roles
+......
+
+1. what is the service ...> ec2
+2. what are the permissions ...>administrator access
+
+
+aws ec2 run-instances --image-id ami-03265a0778a880afb --instance-type t2.micro  --security-group-ids sg-0885f2e62d2bb3c88
+
+1---0
+2.....> 1st index
+
+create all the instances mongodb reddis mysql rabbitmq catalogue user cart shipping payment disptach web
+
+update route-53 records
+
+
+
+
+"Groups": [],
+    "Instances": [
+        {
+            "AmiLaunchIndex": 0,
+            "ImageId": "ami-03265a0778a880afb",
+            "InstanceId": "i-00d85d6eff7965f7d",
+            "InstanceType": "t2.micro",
+            "LaunchTime": "2024-01-02T12:13:19+00:00",
+            "Monitoring": {
+                "State": "disabled"
+            },
+            "Placement": {
+                "AvailabilityZone": "us-east-1c",
+                "GroupName": "",
+                "Tenancy": "default"
+            },
+            "PrivateDnsName": "ip-172-31-37-196.ec2.internal",
+            "PrivateIpAddress": "172.31.37.196",
+            "ProductCodes": [],
+            "PublicDnsName": "",
+            "State": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "StateTransitionReason": "",
+            "SubnetId": "subnet-0225b604e52d807b7",
+            "VpcId": "vpc-07050d406347cd53f",
+            "Architecture": "x86_64",
+            "BlockDeviceMappings": [],
+            "ClientToken": "6915708f-aa9c-4678-8d34-32eeee6022bf",
+            "EbsOptimized": false,
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "NetworkInterfaces": [
+                {
+                    "Attachment": {
+                        "AttachTime": "2024-01-02T12:13:19+00:00",
+                        "AttachmentId": "eni-attach-03fc03aad0df7a814",
+                        "DeleteOnTermination": true,
+                        "DeviceIndex": 0,
+                        "Status": "attaching",
+                        "NetworkCardIndex": 0
+                    },
+                    "Description": "",
+                    "Groups": [
+                        {
+                            "GroupName": "allow-all",
+                            "GroupId": "sg-0885f2e62d2bb3c88"
+                        }
+                    ],
+                    "Ipv6Addresses": [],
+                    "MacAddress": "0e:62:8b:4e:c9:0b",
+                    "NetworkInterfaceId": "eni-0f19651199ab6ff4f",
+                    "OwnerId": "723539231780",
+                    "PrivateDnsName": "ip-172-31-37-196.ec2.internal",
+                    "PrivateIpAddress": "172.31.37.196",
+                    "PrivateIpAddresses": [
+                        {
+                            "Primary": true,
+                            "PrivateDnsName": "ip-172-31-37-196.ec2.internal",
+                            "PrivateIpAddress": "172.31.37.196"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Status": "in-use",
+                    "SubnetId": "subnet-0225b604e52d807b7",
+                    "VpcId": "vpc-07050d406347cd53f",
+                    "InterfaceType": "interface"
+                }
+            ],
+            "RootDeviceName": "/dev/sda1",
+            "RootDeviceType": "ebs",
+            "SecurityGroups": [
+                {
+                    "GroupName": "allow-all",
+                    "GroupId": "sg-0885f2e62d2bb3c88"
+                }
+            ],
+            "SourceDestCheck": true,
+            "StateReason": {
+                "Code": "pending",
+                "Message": "pending"
+            },
+            "VirtualizationType": "hvm",
+            "CpuOptions": {
+                "CoreCount": 1,
+                "ThreadsPerCore": 1
+            },
+            "CapacityReservationSpecification": {
+                "CapacityReservationPreference": "open"
+            },
+            "MetadataOptions": {
+                "State": "pending",
+                "HttpTokens": "optional",
+                "HttpPutResponseHopLimit": 1,
+                "HttpEndpoint": "enabled",
+                "HttpProtocolIpv6": "disabled",
+                "InstanceMetadataTags": "disabled"
+            },
+            "EnclaveOptions": {
+                "Enabled": false
+            },
+            "PrivateDnsNameOptions": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "MaintenanceOptions": {
+                "AutoRecovery": "default"
+            },
+            "CurrentInstanceBootMode": "legacy-bios"
+        }
+    ],
+    "OwnerId": "723539231780",
+    "ReservationId": "r-0d53fc3bff109afae"
+}
