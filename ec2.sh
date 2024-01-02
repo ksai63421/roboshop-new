@@ -6,3 +6,4 @@ for i in "${NAMES[@]}"
 do
   echo "NAME: $i"
 done 
+fi
