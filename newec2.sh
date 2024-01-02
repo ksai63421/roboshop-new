@@ -8,7 +8,7 @@ SECURITY_GROUP_ID=sg-0885f2e62d2bb3c88
 # if mysql and mongodb is t3.medium and rest of them are t2.micro
 for i in "${NAMES[@]}"
 do
-  if [ [ $i == "mongodb" || $i == "mysql" ] ];
+  if [[ $i == "mongodb" || $i == "mysql" ]];
   then 
       INSTANCE_TYPE="t3.medium"
      else
